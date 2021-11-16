@@ -3,7 +3,6 @@ import {useState} from "react";
 function ItemCount(props){
     const init = props.initial;
     let [quantity,setQuantity] = useState(init);
-    console.log(quantity);
 
     const add = () => {
         if(props.stock > quantity) setQuantity(quantity + 1);
