@@ -1,7 +1,8 @@
 import ItemCount from "../ItemCount/ItemCount";
 import ItemList from "../ItemList/ItemList";
+import {data} from '../../products';
 
-function ItemListContainer({ items }) {
+function ItemListContainer() {
 
     let is_ok = true;
 
@@ -20,7 +21,7 @@ function ItemListContainer({ items }) {
     return (
         <>
             <ItemCount initial={1} stock={5} />
-            {mock(2000, <ItemList items={items} />).then(result => { console.log(result) }).catch(err => console.log(err))};
+            {mock(2000, <ItemList items={data} />).then(result => { console.log(result) }).catch(err => console.log(err))};
         </>
     )
 
