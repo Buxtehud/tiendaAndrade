@@ -1,6 +1,5 @@
-function Item(item){
+function Item({item}){
     const {title,price,pictureUrl} = item;
-    console.log(title);
     return (
         <div className="container box-border h-38 w-40 p-3 space-y-2 border-blue-600 border-2 flex flex-col">
             <p className = "text-center">{title}</p>

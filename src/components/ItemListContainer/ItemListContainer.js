@@ -1,8 +1,11 @@
 import ItemCount from "../ItemCount/ItemCount";
 import ItemList from "../ItemList/ItemList";
 import {data} from '../../products';
+import { useEffect, useState } from "react";
 
 function ItemListContainer() {
+
+    const [datos,setDatos] = useState([]);  
 
     let is_ok = true;
 
@@ -13,15 +16,19 @@ function ItemListContainer() {
                     resolve(task);
                 }, timeout);
             } else {
-                reject("Error al cargar productos")
+                reject("Error al cargar productos");
             }
-        })
+        },[])
     };
+
+    useEffect(() => {
+        mock(2000,data).then(result => setDatos(result)).catch(err => console.log(err))
+    },[])
 
     return (
         <>
             <ItemCount initial={1} stock={5} />
-            {mock(2000, <ItemList items={data} />).then(result => { console.log(result) }).catch(err => console.log(err))};
+            <ItemList items = {datos} />
         </>
     )
 
