@@ -9,9 +9,9 @@ function NavBar(){
         </div>
         <div className="navLinkContainer">
             <a href="#" className="navLink">Home</a>
-            <a href="#" className="navLink">Products</a>
-            <a href="#" className="navLink">About Us</a>
-            <a href="#" className="navLink">Contact</a>
+            <a href="#" className="navLink">Tortas</a>
+            <a href="#" className="navLink">Bocaditos</a>
+            <a href="#" className="navLink">Dulces</a>
         </div>
         <CartWidget />
     </nav>

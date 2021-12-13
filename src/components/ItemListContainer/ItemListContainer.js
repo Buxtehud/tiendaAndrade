@@ -27,11 +27,9 @@ function ItemListContainer() {
 
     return (
         <>
-            <ItemCount initial={1} stock={5} />
             <ItemList items = {datos} />
         </>
     )
-
 }
 
 export default ItemListContainer;
