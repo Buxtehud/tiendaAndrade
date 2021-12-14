@@ -44,8 +44,18 @@ function CartContextProvider({children}){
         return total;
     }
 
+    const cantTotal = () => {
+        let cantidades = [];
+        let total = 0;
+        if(cartList.length > 0){
+        cantidades = cartList.map(elem => elem.qtyItem);
+        total = cantidades.reduce((prev,next) => prev+next)
+        }
+        return total;
+    }
+
     return(
-        <CartContext.Provider value={{cartList,addItem,removeItem,clear,calcTotal}}>
+        <CartContext.Provider value={{cartList,addItem,removeItem,clear,calcTotal,cantTotal}}>
             {children}
         </CartContext.Provider>
     );
