@@ -1,10 +1,14 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import ItemCount from "../ItemCount/ItemCount";
 
 function ItemDetail({item}) {
 
     const {title,stock,price,pictureUrl} = item;
+    const [counter,setCounter] = useState(0);
     const onAdd = (qty) => {
         alert("You have selected " + qty + " items.");
+        setCounter(qty);
     };
     
     return (
@@ -14,7 +18,13 @@ function ItemDetail({item}) {
             <img src={pictureUrl} alt={title}></img>
             <p className = "m-2">$ {price}</p>
             </div>
-            <ItemCount initial={1} stock={stock} onAdd={onAdd}/>
+            {counter === 0
+            ?<ItemCount initial={counter} stock={stock} onAdd={onAdd}/>
+            :<Link to='/cart'>
+                <div className="container h-38 w-30 space-y-2 flex flex-col">
+                    <button className = "border-indigo-300 border-2 text-sm">Finalizar Compra</button>
+                </div>
+            </Link>}
         </div>
     )
 }

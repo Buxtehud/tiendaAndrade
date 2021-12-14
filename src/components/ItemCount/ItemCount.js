@@ -27,7 +27,11 @@ function ItemCount({initial, stock, onAdd}){
                 <p>{quantity}</p>
                 <button onClick={removeOne}>-</button>
             </div>
-            <button className = "border-indigo-300 border-2 text-sm" onClick = {() => onAdd(quantity)}>Agregar al Carrito</button>
+            {
+                quantity !== 0
+                ?<button className = "border-indigo-300 border-2 text-sm" onClick = {() => onAdd(quantity)}>Agregar al Carrito</button>
+                :<button className = "border-indigo-100 border-2 text-sm text-gray-300" disabled>Agregar al Carrito</button>
+            }
         </div>
     )
 }
