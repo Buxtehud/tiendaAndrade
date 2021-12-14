@@ -19,7 +19,7 @@ function ItemCount({initial, stock, onAdd}){
             setQuantity(quantity - 1)
         };
     };
-    
+
     return(
         <div className="container h-38 w-30 space-y-2 flex flex-col">
             <div className = "flex justify-between border-gray-200">
