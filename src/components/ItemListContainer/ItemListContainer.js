@@ -21,13 +21,17 @@ function ItemListContainer() {
         },[])
     };
 
+    const onAdd = (qty) => {
+        alert("You have selected " + qty + " items.");
+    }
+
     useEffect(() => {
         mock(2000,data).then(result => setDatos(result)).catch(err => console.log(err))
     },[])
 
     return (
         <>
-            <ItemCount initial={1} stock={5} />
+            <ItemCount initial={1} stock={5} onAdd={onAdd}/>
             <ItemList items = {datos} />
         </>
     )

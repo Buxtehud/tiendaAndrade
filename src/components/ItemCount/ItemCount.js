@@ -1,11 +1,11 @@
 import {useState} from "react";
 
-function ItemCount(props){
-    const init = props.initial;
+function ItemCount({initial,stock,onAdd}){
+    const init = initial;
     let [quantity,setQuantity] = useState(init);
 
     const add = () => {
-        if(props.stock > quantity) setQuantity(quantity + 1);
+        if(stock > quantity) setQuantity(quantity + 1);
     };
 
     const remove = () => {
@@ -20,7 +20,7 @@ function ItemCount(props){
                 <p className = "m-2">{quantity}</p>
                 <button className = "m-2" onClick={remove}>-</button>
             </div>
-            <button className = "border-indigo-300 border-2 text-sm" onClick = {props.onAdd}>Agregar al Carrito</button>
+            <button className = "border-indigo-300 border-2 text-sm" onClick={()=>{onAdd(quantity)}}>Agregar al Carrito</button>
         </div>
     )
 }
