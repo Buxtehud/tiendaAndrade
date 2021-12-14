@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo.jpg"
 import CartWidget from "../CartWidget/CartWidget";
 
@@ -5,13 +6,13 @@ function NavBar(){
     return (
     <nav className="navContainer">
         <div className="navLogo">
-            <img src={logo} alt="logo"></img>
+        <NavLink className="navLink" to= '/'><img src={logo} alt="logo"></img></NavLink>
         </div>
         <div className="navLinkContainer">
-            <a href="#" className="navLink">Home</a>
-            <a href="#" className="navLink">Tortas</a>
-            <a href="#" className="navLink">Bocaditos</a>
-            <a href="#" className="navLink">Dulces</a>
+            <NavLink className="navLink" to= '/'><p>Home</p></NavLink>
+            <NavLink className="navLink" to = 'category/Tortas'><p>Tortas</p></NavLink>
+            <NavLink className="navLink" to = 'category/Bocaditos'><p>Bocaditos</p></NavLink>
+            <NavLink className="navLink" to = 'category/Dulces'><p>Dulces</p></NavLink>
         </div>
         <CartWidget />
     </nav>

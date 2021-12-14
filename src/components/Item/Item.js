@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 function Item({item}){
 
-    const {title,price,pictureUrl} = item;
+    const {id,title,stock,price,pictureUrl} = item;
     
     return (
         <div className="container box-border h-38 w-40 p-3 space-y-2 border-blue-600 border-2 flex flex-col m-4">
@@ -9,7 +11,7 @@ function Item({item}){
             <img src={pictureUrl} alt={title}></img>
             <p className = "m-2">$ {price}</p>
             </div>
-            <button className = "border-indigo-300 border-2 text-sm">Ver detalles</button>
+            <Link to = {`/item/${id}`}><p className = "border-indigo-300 border-2 text-sm text-center">Ver detalles</p></Link>
         </div>
     )
 }
