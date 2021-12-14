@@ -14,7 +14,7 @@ function NavBar(){
             <NavLink className="navLink" to = 'category/Bocaditos'><p>Bocaditos</p></NavLink>
             <NavLink className="navLink" to = 'category/Dulces'><p>Dulces</p></NavLink>
         </div>
-        <CartWidget />
+        <NavLink to ='/cart'><CartWidget /></NavLink>
     </nav>
     )
 }
