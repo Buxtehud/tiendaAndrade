@@ -1,25 +1,33 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
-function ItemCount(props){
-    const init = props.initial;
-    let [quantity,setQuantity] = useState(init);
+function ItemCount({initial, stock, onAdd}){
+    
+    let [quantity,setQuantity] = useState(initial);
 
-    const add = () => {
-        if(props.stock > quantity) setQuantity(quantity + 1);
+    useEffect(() => {
+        setQuantity(initial);
+    },[]);
+
+    const addOne = () => {
+        if(stock > quantity) {
+            setQuantity(quantity + 1)
+        };
     };
 
-    const remove = () => {
-        if(quantity > 0) setQuantity(quantity - 1);
+    const removeOne = () => {
+        if(quantity > 0) {
+            setQuantity(quantity - 1)
+        };
     };
     
     return(
         <div className="container h-38 w-30 space-y-2 flex flex-col">
             <div className = "flex justify-between border-gray-200">
-                <button onClick={add}>+</button>
+                <button onClick={addOne}>+</button>
                 <p>{quantity}</p>
-                <button onClick={remove}>-</button>
+                <button onClick={removeOne}>-</button>
             </div>
-            <button className = "border-indigo-300 border-2 text-sm" onClick = {props.onAdd}>Agregar al Carrito</button>
+            <button className = "border-indigo-300 border-2 text-sm" onClick = {() => onAdd(quantity)}>Agregar al Carrito</button>
         </div>
     )
 }

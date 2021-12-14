@@ -22,7 +22,7 @@ function ItemDetailContainer(){
             },[])
         };
         mock(2000,data.find(item => item.id === parseInt(id))).then(result => setDatos(result)).catch(err => console.log(err));
-    },[datos])
+    },[datos]);
 
     return(
         <ItemDetail item={datos}/>
