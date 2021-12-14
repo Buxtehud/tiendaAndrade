@@ -25,7 +25,7 @@ function ItemListContainer() {
             if (id === undefined) return item;
             return item.categoryId === id;
         })).then(result => setDatos(result)).catch(err => console.log(err))
-    },[datos])
+    },[id])
 
     return (
             <ItemList items = {datos} />

@@ -38,8 +38,14 @@ function CartContextProvider({children}){
         setCartList([]);
     }
 
+    const calcTotal = () => {
+        let subtotales = cartList.map(elem => elem.qtyItem*elem.priceItem);
+        let total =  subtotales.reduce((prev,next) => prev+next);
+        return total;
+    }
+
     return(
-        <CartContext.Provider value={{cartList,addItem,removeItem,clear}}>
+        <CartContext.Provider value={{cartList,addItem,removeItem,clear,calcTotal}}>
             {children}
         </CartContext.Provider>
     );
