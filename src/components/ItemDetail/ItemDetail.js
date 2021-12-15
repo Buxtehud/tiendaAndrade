@@ -4,7 +4,6 @@ import { CartContext } from "../../context/CartContext";
 import ItemCount from "../ItemCount/ItemCount";
 
 function ItemDetail({item}) {
-
     const {title,stock,price,pictureUrl} = item;
     const [counter,setCounter] = useState(0);
 
