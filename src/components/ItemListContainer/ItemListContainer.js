@@ -10,10 +10,11 @@ function ItemListContainer() {
 
     useEffect(() => {
         firestoreFetch().then(answ => {
-            setDatos(answ.filter(item => {
+            let filtered = answ.filter(item => {
                 if (id === undefined) return item;
                 return item.categoryId === id;
-            }))
+            });
+            setDatos(filtered);
         }).catch(err => console.log(err));
     },[id])
 
