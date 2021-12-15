@@ -22,7 +22,6 @@ function Cart (){
         }));
         order.date = serverTimestamp();
         order.total = context.calcTotal();
-        console.log(order);
 
         const orderToFirestore = async () => {
             const newOrderRef = doc(collection(db,"ordenes"));
