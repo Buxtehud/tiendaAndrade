@@ -10,7 +10,8 @@ function CartContextProvider({children}){
         cartList.forEach(elem => {
             if(elem.idItem === item.id){
                 isIn = true;
-                return (elem.qtyItem += qty);
+                elem.qtyItem += qty;
+                return (setCartList([...cartList]));
             }
         });
         if(!isIn || cartList.length === 0){
