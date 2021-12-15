@@ -1,9 +1,45 @@
+import { collection, doc, increment, serverTimestamp, setDoc, updateDoc } from "firebase/firestore";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
+import db from "../../utils/firebaseConfig";
 
 function Cart (){
     const context = useContext(CartContext);
+
+    const createOrder = () => {
+        let order = {};
+        order.buyer = {
+            name: "Albert",
+            email: "albertito@gmail.com",
+            phone:"123546"
+        };
+        order.items = context.cartList.map(item => ({
+            id:item.idItem,
+            title:item.titleItem,
+            price:item.priceItem,
+            quantity:item.qtyItem
+        }));
+        order.date = serverTimestamp();
+        order.total = context.calcTotal();
+        console.log(order);
+
+        const orderToFirestore = async () => {
+            const newOrderRef = doc(collection(db,"ordenes"));
+            await setDoc(newOrderRef,order);
+            return newOrderRef;
+        }
+        orderToFirestore().then(answ => alert(answ.id)).catch(err => console.log(err));
+
+        context.cartList.forEach(async(item) => {
+            const itemRef = doc(db,"productos",item.idItem);
+            await updateDoc(itemRef, {
+                stock: increment(-item.qtyItem)
+            })
+        })
+
+        context.clear();
+    }
     
     return(
         <>
@@ -44,6 +80,9 @@ function Cart (){
                 </tr>
             </tfoot>
             </table>
+            <div className="p-3 text-center">
+                <button className="my-6 mx-auto border-black border rounded-md p-2" onClick={createOrder}>Finalizar compra</button>
+            </div>
         </div>
         :<>
             <p className="text-center text-2xl m-6 p-6">No hay productos en el carrito</p>
