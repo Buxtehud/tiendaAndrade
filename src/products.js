@@ -6,10 +6,6 @@ const data = [
     price: 25,
     pictureUrl: "https://images.unsplash.com/photo-1605807646983-377bc5a76493",
     categoryId: "Tortas",
-    category: {
-      title: "Tortas",
-      id: 1
-    }
   },
   {
     id: 21,
