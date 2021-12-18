@@ -1,41 +1,30 @@
-import ItemCount from "../ItemCount/ItemCount";
 import ItemList from "../ItemList/ItemList";
-import {data} from '../../products';
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import firestoreFetch from "../../utils/firestoreFetch";
 
 function ItemListContainer() {
 
-    const [datos,setDatos] = useState([]);  
-
-    let is_ok = true;
-
-    let mock = (timeout, task) => {
-        return new Promise((resolve, reject) => {
-            if (is_ok) {
-                setTimeout(() => {
-                    resolve(task);
-                }, timeout);
-            } else {
-                reject("Error al cargar productos");
-            }
-        },[])
-    };
+    const [datos,setDatos] = useState([]);
+    const {id} = useParams();
 
     const onAdd = (qty) => {
         alert("You have selected " + qty + " items.");
     }
 
     useEffect(() => {
-        mock(2000,data).then(result => setDatos(result)).catch(err => console.log(err))
-    },[])
+        firestoreFetch().then(answ => {
+            let filtered = answ.filter(item => {
+                if (id === undefined) return item;
+                return item.categoryId === id;
+            });
+            setDatos(filtered);
+        }).catch(err => console.log(err));
+    },[id])
 
     return (
-        <>
-            <ItemCount initial={1} stock={5} onAdd={onAdd}/>
             <ItemList items = {datos} />
-        </>
     )
-
 }
 
 export default ItemListContainer;

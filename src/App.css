@@ -8,6 +8,10 @@
   margin-right: auto;
 }
 
+.navLinkContainer{
+  display: flex;
+  flex-direction: row;
+}
 
 .navLink{
   margin: 5px;
