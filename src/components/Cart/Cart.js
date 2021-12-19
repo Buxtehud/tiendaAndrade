@@ -28,7 +28,7 @@ function Cart (){
             await setDoc(newOrderRef,order);
             return newOrderRef;
         }
-        orderToFirestore().then(answ => alert(answ.id)).catch(err => console.log(err));
+        orderToFirestore().then(answ => alert(`Su orden de compra es: ${answ.id}`)).catch(err => console.log(err));
 
         context.cartList.forEach(async(item) => {
             const itemRef = doc(db,"productos",item.idItem);
