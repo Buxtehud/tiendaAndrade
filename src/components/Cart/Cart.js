@@ -85,7 +85,7 @@ function Cart (){
         </div>
         :<>
             <p className="text-center text-2xl m-6 p-6">No hay productos en el carrito</p>
-            <Link to = '/'><p className = "text-md text-center m-6 p-6"><span className="border-black border p-2 rounded-full">Volver a la tienda</span></p></Link>
+            <Link to = '/'><p className = "text-md text-center text-shopBlue m-6 p-6"><span className="border-shopSecond border-2 p-2 rounded-full">Volver a la tienda</span></p></Link>
         </>}
         </>
     )

@@ -29,8 +29,8 @@ function ItemCount({initial, stock, onAdd}){
             </div>
             {
                 quantity !== 0
-                ?<button className = "border-indigo-300 border-2 text-sm" onClick = {() => onAdd(quantity)}>Agregar al Carrito</button>
-                :<button className = "border-indigo-100 border-2 text-sm text-gray-300" disabled>Agregar al Carrito</button>
+                ?<button className = "border-shopSecond border-2 text-base" onClick = {() => onAdd(quantity)}>Agregar al Carrito</button>
+                :<button className = "border-shopSecond opacity-30 border-2 text-base" disabled>Agregar al Carrito</button>
             }
         </div>
     )
