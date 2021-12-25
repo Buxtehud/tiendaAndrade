@@ -1,0 +1,18 @@
+.basis{
+    flex-basis: 33.33%
+}
+
+.navLink{
+    padding: 5px;
+}
+
+.active{
+    border-radius: 7px;
+}
+
+.active>p{
+    text-decoration:underline;
+    text-decoration-color: #F6AB99;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 5px;
+}

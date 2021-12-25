@@ -7,7 +7,7 @@ function CartWidget(){
     const context = useContext(CartContext);
 
     return(
-        <div className="navCart ">
+        <div className="">
             {context.cantTotal() > 0
             ?<div className='rounded-full bg-blue-400 text-white w-5 h-5 text-center text-xs align-baseline leading-5'>{context.cantTotal()}</div>
             :<></>}
