@@ -8,7 +8,7 @@ import OrderModal from "./OrderModal";
 function Cart (){
     const context = useContext(CartContext);
     let [modal,setModal] = useState(false);
-    let []
+    let [id,setId] = useState();
 
     const modalHandler = (modal) =>{
         setModal(!modal);
@@ -37,6 +37,7 @@ function Cart (){
         }
         orderToFirestore().then((answ) => {
             modalHandler(modal);
+            setId(answ.id);
             context.clear();
         }).catch(err => console.log(err));
 
@@ -97,7 +98,7 @@ function Cart (){
         </>}
         {
             modal
-            ?<OrderModal mod={modal} modalHandler={modalHandler}/>
+            ?<OrderModal mod={modal} modalHandler={modalHandler} id={id}/>
             :<></>
         }
         </>
