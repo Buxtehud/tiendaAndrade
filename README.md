@@ -32,6 +32,7 @@ Para empezar a deployar el proyecto en tu navegador.
 * [Javascript](https://rometools.github.io/rome/)
 * [React](https://reactjs.org/) - Framework de JS para FrontEnd
 * [Tailwind](https://tailwindcss.com/docs/installation) - Framework CSS
+* [Firestore](https://firebase.google.com/) - Servicio de base de datos en la nube de Google Firebase
 
 ## Autor ✒️
 
