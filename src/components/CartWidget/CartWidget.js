@@ -9,7 +9,7 @@ function CartWidget(){
     return(
         <div className="">
             {context.cantTotal() > 0
-            ?<div className='rounded-full bg-blue-400 text-white w-5 h-5 text-center text-xs align-baseline leading-5'>{context.cantTotal()}</div>
+            ?<div className='rounded-full bg-shopBlue text-white w-5 h-5 text-center text-xs align-baseline leading-5'>{context.cantTotal()}</div>
             :<></>}
             <ShoppingCartIcon className = "h-6  w-6" />
         </div>
