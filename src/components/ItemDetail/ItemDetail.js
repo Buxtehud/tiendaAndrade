@@ -3,15 +3,21 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import ItemCount from "../ItemCount/ItemCount";
+import AddToCartModal from "./AddToCartModal";
 
 function ItemDetail({item}) {
     const {title,stock,price,pictureUrl} = item;
     const [counter,setCounter] = useState(0);
+    let [modal,setModal] = useState(false);
 
     const context = useContext(CartContext);
 
+    const modalHandler = (modal) =>{
+        setModal(!modal);
+    }
+
     const onAdd = (qty) => {
-        alert("You have selected " + qty + " items.");
+        modalHandler(modal)
         setCounter(qty);
         context.addItem(item,qty);
     };
@@ -32,6 +38,11 @@ function ItemDetail({item}) {
                     </div>
                 </Link>}
             </div>
+            {
+                modal
+                ?<AddToCartModal ammount ={counter} mod = {modal} modalHandler={modalHandler}/>
+                :<></>
+            }
         </div>
     )
 }

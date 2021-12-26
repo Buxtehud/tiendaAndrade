@@ -8,10 +8,6 @@ function ItemListContainer() {
     const [datos,setDatos] = useState([]);
     const {id} = useParams();
 
-    const onAdd = (qty) => {
-        alert("You have selected " + qty + " items.");
-    }
-
     useEffect(() => {
         firestoreFetch().then(answ => {
             let filtered = answ.filter(item => {
