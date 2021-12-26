@@ -8,6 +8,7 @@ import OrderModal from "./OrderModal";
 function Cart (){
     const context = useContext(CartContext);
     let [modal,setModal] = useState(false);
+    let []
 
     const modalHandler = (modal) =>{
         setModal(!modal);
